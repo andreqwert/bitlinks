@@ -60,7 +60,7 @@ def is_bitlink(token, link):
 def main():
     env = Env()
     env.read_env()
-    token = env('TOKEN')
+    token = env('BITLY_TOKEN')
     link = input('Введите ссылку: ')
     try:
         if is_bitlink(token, link):

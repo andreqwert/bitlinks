@@ -1,6 +1,6 @@
 # Bitlinks
 Make your links shorter.    
-If you send the bitlink then you'll receive how many times this bitlink was used to get an access to the site. If you send the initial link (not bitlink) then you'll receive the bitlink as a reponse.
+If you send the bitlink then you'll receive how many times this bitlink was used to get access to the site. If you send the initial link (not bitlink) then you'll receive the bitlink as a response.
 
 ## Brief install
 `pip3 install -r requirements.txt`

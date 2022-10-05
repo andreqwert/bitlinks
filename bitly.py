@@ -38,7 +38,7 @@ def count_bitlink_clicks(token, bitlink):
     return clicks_num
 
 
-def is_bitlink(token, link):
+def check_is_bitlink(token, link):
     """Check if link is a bitlink."""
 
     headers = {
@@ -55,17 +55,18 @@ def main():
     env.read_env()
     token = env('BITLY_TOKEN')
     link = input('Введите ссылку: ')
-    if is_bitlink(token, link):
-        clicks_num = count_bitlink_clicks(token, link)
-        print(f'По ссылке прошли {clicks_num} раз(а)')
-    else:
-        print('Битлинк', shorten_link(token, link))
-
+    try:
+        if check_is_bitlink(token, link):
+            clicks_num = count_bitlink_clicks(token, link)
+            print(f'По ссылке прошли {clicks_num} раз(а)')
+        else:
+            print('Битлинк', shorten_link(token, link))
+    except requests.exceptions.HTTPError:
+        print('Вы ввели неправильную ссылку или неверный токен.')
 
 
 if __name__ == '__main__':
     main()
-
 
 
 

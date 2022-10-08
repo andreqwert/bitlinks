@@ -13,8 +13,6 @@ def shorten_link(token, link):
         'long_url': link
     }
 
-    response_get = requests.get(link)
-
     url = 'https://api-ssl.bitly.com/v4/bitlinks'
     response_post = requests.post(url, headers=headers, json=payload)
     response_post.raise_for_status()

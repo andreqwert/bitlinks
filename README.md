@@ -7,7 +7,7 @@ Python3 should already be installed. Use `pip3` to install dependencies:
 `pip3 install -r requirements.txt`
 
 ## Quick start
-1. Get your token from API section of `bitly.com`.
+1. Get your token from [API section](https://app.bitly.com/settings/api/) of `bitly.com`.
 2. Create file `.env` with the following content:      
 `BITLY_TOKEN = ...` <-- put your token there
 3. Launch this script with the bash command: `python3 bitly.py <your_link>`

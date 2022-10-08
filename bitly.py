@@ -60,6 +60,7 @@ def is_bitlink(token, link):
 
 
 def main():
+    
     args = parse_args()
     env = Env()
     env.read_env()

@@ -2,6 +2,16 @@ import requests
 from environs import Env
 from dotenv import load_dotenv
 load_dotenv()
+import argparse
+
+
+def parse_args():
+    """Parse arguments from input"""
+
+    parser = argparse.ArgumentParser(description='Making links shorter')
+    parser.add_argument('-l', '--link', help='Link')
+    args = vars(parser.parse_args())
+    return args
 
 
 def shorten_link(token, link):
@@ -50,18 +60,18 @@ def is_bitlink(token, link):
 
 
 def main():
+    args = parse_args()
     env = Env()
     env.read_env()
     token = env('BITLY_TOKEN')
-    link = input('Введите ссылку: ')
     try:
-        if is_bitlink(token, link):
-            clicks_num = count_bitlink_clicks(token, link)
-            print(f'По ссылке прошли {clicks_num} раз(а)')
+        if is_bitlink(token, args['link']):
+            clicks_num = count_bitlink_clicks(token, args['link'])
+            print(f'Number of redirects from your bitly link: {clicks_num}')
         else:
-            print('Битлинк', shorten_link(token, link))
+            print('Bitlink:', shorten_link(token, args['link']))
     except requests.exceptions.HTTPError:
-        print('Вы ввели неправильную ссылку или неверный токен.')
+        print('Your input link or token is incorrect.')
 
 
 if __name__ == '__main__':

@@ -1,5 +1,7 @@
 import requests
 from environs import Env
+from dotenv import load_dotenv
+load_dotenv()
 
 
 def shorten_link(token, link):

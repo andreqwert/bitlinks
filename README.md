@@ -17,7 +17,7 @@ In example below we provide some links that could be processed:
 ```bash
 >>> python3 bitly.py https://google.com   
 Bitlink: bit.ly/3CrgtY5
->>> python3 bit.ly/3CrgtY5
+>>> python3 bitly.py bit.ly/3CrgtY5
 Number of redirects from your bitly link: 5
 ```
 

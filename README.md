@@ -14,15 +14,15 @@ pip3 install -r requirements.txt
 	`BITLY_TOKEN = ...` <-- put your token there
 3. Launch this script with the bash command: 
 ```
-python3 bitly.py <your_link>
+python3 bitly.py -l <your_link>
 ```
 
 ## Examples
 In example below we provide some links that could be processed:
 ```bash
->>> python3 bitly.py https://google.com   
+>>> python3 bitly.py -l https://google.com   
 Bitlink: bit.ly/3CrgtY5
->>> python3 bitly.py bit.ly/3CrgtY5
+>>> python3 bitly.py -l bit.ly/3CrgtY5
 Number of redirects from your bitly link: 5
 ```
 

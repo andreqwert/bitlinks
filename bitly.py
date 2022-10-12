@@ -7,8 +7,8 @@ def parse_args():
     """Parse arguments from input"""
 
     parser = argparse.ArgumentParser(description='Making links shorter')
-    parser.add_argument('-l', '--link', help='Link')
-    args = vars(parser.parse_args())
+    parser.add_argument('-l', '--link', help='Link which you would like to make shorter')
+    args = parser.parse_args()
     return args
 
 
@@ -64,11 +64,11 @@ def main():
     env.read_env()
     token = env('BITLY_TOKEN')
     try:
-        if is_bitlink(token, args['link']):
-            clicks_num = count_bitlink_clicks(token, args['link'])
+        if is_bitlink(token, args.link):
+            clicks_num = count_bitlink_clicks(token, args.link)
             print(f'Number of redirects from your bitly link: {clicks_num}')
         else:
-            print('Bitlink:', shorten_link(token, args['link']))
+            print('Bitlink:', shorten_link(token, args.link))
     except requests.exceptions.HTTPError:
         print('Your input link or token is incorrect.')
 
